@@ -1,0 +1,18 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  * {
+    box-sizing: inherit;
+  }
+}
+
+#app {
+  height: 100%;
+}
+.app-background {
+  background-color: white;
+  background-color: var(--app-background-color);
+}
