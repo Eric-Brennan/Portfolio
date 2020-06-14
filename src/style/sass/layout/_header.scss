@@ -1,0 +1,24 @@
+.header {
+    height: 100%;
+    // IE fallback colours
+    background-color: $verastar--red;
+    background: linear-gradient(to right, #{$verastar--red} 0%, #{$verastar--pink} 50%, #{$verastar--orange} 100%);
+    // Theme colours
+    background-color: var(--headerBackgroundColour); // variable colour defined in themes/_theme-colours.scss
+    background: var(--headerBackgroundGradient);
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+
+
+    &__logo {
+        padding: 0.3%;
+        z-index: 3;
+        max-width: 4rem;
+    }
+
+    &__mainMenu {
+        max-width: 65vw; // Set menu max width to enable menu scroling on smaller screens
+    }
+}

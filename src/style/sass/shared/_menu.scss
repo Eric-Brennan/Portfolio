@@ -1,0 +1,90 @@
+/* TODO */
+.menu {
+    // Top level menu
+    &__parent {
+        // Transparent top level menu
+        &--transparent {
+            // Sync overrides
+            &.e-menu-wrapper:not(.e-menu-popup) { // Since parent, do not override popup background
+                background-color: transparent;
+
+                > .e-menu, .e-hscroll-content > .e-menu {
+                    background-color: transparent;
+
+                    .e-menu-item {
+                        background-color: transparent;
+                        color: white;
+
+                        &::before {
+                            color: white;
+                        }
+
+                        .e-caret::before {
+                            color: white;
+                        }
+                    }
+                }
+            }
+            // Icons white if transparent
+            .e-menu-icon {
+                line-height: normal !important;
+                font-size: 2em !important;
+
+                &::before {
+                    color: white;
+                }
+            }
+        }
+
+        &--icon {
+            &-rotate {
+                // Sync selectors for menu parent icon
+                .e-menu-parent .e-menu-item {
+                    &:hover {
+                        span.mdi::before {
+                            animation: spinner-border 3s linear infinite;
+                        }
+                    }
+                }
+            }
+        }
+        // Large font
+        &--large {
+            > .e-menu, .e-hscroll-content > .e-menu { // Parent Menu header
+                font-size: large;
+            }
+        }
+        // Remove caret
+        &--noCaret:not(.e-menu-popup) {
+            > .e-menu-parent > .e-menu-caret-icon > .e-caret {
+                display: none;
+            }
+        }
+    }
+    // Themed menu - overrides syncfusion colours with theme colours
+    &--themed {
+        &.e-menu-wrapper .e-ul {
+            background-color: var(--menu-background-colour);
+            color: var(--menu-font-colour);
+
+            .e-menu-item.e-focused {
+                background-color: var(--menu-focus-colour);
+                color: inherit;
+            }
+
+            .e-menu-item.e-selected {
+                background-color: var(--menu-selected-colour);
+                color: inherit;
+            }
+
+            .e-menu-item:hover {
+                background-color: var(--menu-hover-colour);
+                color: inherit;
+            }
+
+            .e-menu-item .e-caret {
+                color: var(--menu-font-colour) !important;
+            }
+        }
+    }
+}

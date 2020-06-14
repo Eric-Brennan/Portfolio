@@ -1,0 +1,75 @@
+// Theme colours
+// Root = light/default appends to html tag
+:root {
+    // App
+    --app-background-color: white;
+    --font-colour: black;
+    --primary: #{$primary};
+    --primary-font: #{$primary-font};
+    --accent: #{$accent};
+    --accent-font: #{$accent-font};
+    // Sidebar
+    --sidebar-colour: #{$grey-50};
+    --sidebar-item-colour: #5d5d5d;
+    --sidebar-item-colour--hover: #{$accent};
+    --sidebar-border-colour: #8080804a;
+    // Header
+    --headerBackgroundColour: #{$verastar--red};
+    --headerBackgroundGradient: linear-gradient(to right, #{$verastar--red} 0%, #{$verastar--pink} 50%, #{$verastar--orange} 100%);
+    // Entity
+    --entityHeader-backgroundColour: #{$grey-100};
+    --entity-backgroundColour: white;
+    // Menu
+    --menu-background-colour: white;
+    --menu-font-colour: black;
+    --menu-hover-colour: inherit;
+    --menu-focus-colour: inherit;
+    --menu-selected-colour: inherit;
+    // Containers
+    --container-shaded-background-colour: #f5f5f5;
+    // Grid
+    --grid-header-background-colour: white;
+    --grid-header-font-colour: #8a8a8a;
+    --grid-row-background-colour: #{$grey-50};
+    --grid-alt-row-background-colour: #{$grey-100};
+    --grid-row-background-colour-hover: #{$grey-200};
+    --grid-row-font-colour-hover: black;
+    --hyperlink-colour: #004ad2;
+}
+
+[theme="dark"] {
+    // App
+    --app-background-color: #05121d;
+    --font-colour: white;
+    --primary: #{$dark-primary};
+    --primary-font: #{$dark-primary-font};
+    --accent: #{$dark-accent};
+    --accent-font: #{$dark-accent-font};
+    // Sidebar
+    --sidebar-colour: #03060c;
+    --sidebar-item-colour: #8a8a8a;
+    --sidebar-item-colour--hover: #{$dark-primary};
+    --sidebar-border-colour: #6b6b6b;
+    // Header
+    --headerBackgroundColour: #{$black};
+    --headerBackgroundGradient: linear-gradient(to bottom, #10125e 0%, #000000 97%, #676767 100%);
+    // Entity
+    --entityHeader-backgroundColour: #1f1f1f;
+    --entity-backgroundColour: #151229;
+    // Menu
+    --menu-background-colour: #484848;
+    --menu-font-colour: white;
+    --menu-hover-colour: #39387b;
+    --menu-focus-colour: inherit;
+    --menu-selected-colour: #1f4d7b;
+    // Containers
+    --container-shaded-background-colour: #30314e;
+    // Grid
+    --grid-header-background-colour: #63005b;
+    --grid-header-font-colour: #c1c1c1;
+    --grid-row-background-colour: #232323;
+    --grid-alt-row-background-colour: #191919;
+    --grid-row-background-colour-hover: #545455;
+    --grid-row-font-colour-hover: white;
+    --hyperlink-colour: #00d0ff;
+}

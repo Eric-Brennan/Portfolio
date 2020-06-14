@@ -1,0 +1,25 @@
+.command-button {
+    &--padding {
+        &-none {
+            padding: 0px !important;
+        }
+    }
+
+    &--margin {
+        &-xs {
+            margin: $margin--xs;
+        }
+    }
+
+    &__icon {
+        &--centre {
+            span.mdi {
+                width: 100% !important;
+
+                &::before {
+                    line-height: normal;
+                }
+            }
+        }
+    }
+}

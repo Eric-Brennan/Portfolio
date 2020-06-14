@@ -1,15 +1,29 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import Vue from "vue";
+import Vuex from "vuex";
+import {
+  Action,
+  getModule,
+  Module,
+  Mutation,
+  VuexModule,
+} from "vuex-module-decorators";
+import createPersistedState from "vuex-persistedstate";
 
-Vue.use(Vuex)
+import shared from "./modules/shared";
 
-export default new Vuex.Store({
-  state: {
-  },
-  mutations: {
-  },
-  actions: {
-  },
+Vue.use(Vuex);
+
+const store = new Vuex.Store({
+  plugins: [
+    createPersistedState({
+      storage: window.sessionStorage,
+    }),
+  ],
   modules: {
-  }
-})
+    shared,
+  },
+});
+
+export default store;
+
+export const SharedModule = getModule(shared, store);
