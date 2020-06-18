@@ -1,0 +1,28 @@
+.working-day-selector {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+
+    &__day-container {
+
+        &__day {
+            text-align: center;
+            margin-bottom: $margin--sm;
+        }
+
+        &__time {
+            margin-bottom: $margin--sm;
+        }
+    }
+
+    @media screen and (min-width: 1024px) {
+        &__day-container {
+            width: 11%;
+            margin-right: $margin--sm;
+        }
+    }
+}

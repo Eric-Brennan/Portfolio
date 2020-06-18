@@ -1,0 +1,12 @@
+.icon {
+  &__colour {
+    &--white {
+      color: white !important;
+    }
+  }
+  &__size {
+    &--lg {
+      font-size: 36px;
+    }
+  }
+}
