@@ -1,0 +1,50 @@
+.animation {
+  &__pulsate {
+    &--slow,
+    &--slow::before {
+      animation: pulse infinite 1s, grow infinite 1s;
+    }
+  }
+}
+
+@keyframes pulse {
+  0% {
+    font-size: 1.5rem;
+  }
+
+  50% {
+    font-size: 2.5rem;
+  }
+
+  100% {
+    font-size: 1.5rem;
+  }
+}
+
+@keyframes grow {
+  0% {
+    scale: 2;
+  }
+
+  50% {
+    scale: 0.7;
+  }
+
+  100% {
+    scale: 2;
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    padding-top: 0;
+  }
+
+  50% {
+    padding-top: 2rem;
+  }
+
+  100% {
+    padding-top: 0;
+  }
+}

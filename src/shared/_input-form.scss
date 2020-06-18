@@ -1,0 +1,30 @@
+.input-form {
+    &__group {
+        margin-bottom: $margin--md;
+
+        &--contained {
+            border: $border--xs solid #d6d6d6;
+            border-radius: $borderRadius--sm;
+            padding: $padding--sm;
+
+            &-shaded {
+                background-color: #f3f3f3;
+                border-color: $fadedGrey;
+
+                .e-float-input { // Sync class
+                    background-color: white !important;
+                }
+            }
+        }
+    }
+
+    &--padding {
+        &-md {
+            padding: $padding--md;
+        }
+
+        &-lg {
+            padding: $padding--lg;
+        }
+    }
+}

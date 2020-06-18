@@ -1,0 +1,144 @@
+/* css-dan*/
+.grid {
+    $self: &; // self is a reference to .grid
+    &__header {
+        &--font {
+            &-md {
+                .e-headercell.customcss span { // Sync selector
+                    font-size: $fontSize--md;
+                }
+            }
+
+            &-lg {
+                .e-headercell.customcss span { // Sync selector
+                    font-size: $fontSize--lg;
+                }
+            }
+
+            &-grey {
+                .e-headercell.customcss span { // Sync selector
+                    color: #8a8a8a; // IE Fallback
+                    color: var(--grid-header-font-colour);
+                }
+            }
+        }
+    }
+
+    &__row {
+        &--font {
+            &-md {
+                .e-rowcell.customcss { // Sync selector
+                    font-size: 1rem;
+                }
+            }
+
+            &-lg {
+                .e-rowcell.customcss { // Sync selector
+                    font-size: 1.5rem;
+                }
+            }
+        }
+    }
+
+    &__cell {
+        &--hyperlink {
+            color: #004ad2; // IE Fallback
+            color: var(--hyperlink-colour);
+            cursor: pointer;
+
+            &:hover {
+                text-decoration: underline;
+            }
+
+            &-large {
+                font-size: $fontSize--lg;
+            }
+
+            &-medium {
+                font-size: $fontSize--md;
+            }
+        }
+    }
+
+    &--fullHeight {
+        height: 100%;
+        overflow: auto;
+    }
+
+    &--striped {
+        .e-row { // Sync selector
+            background-color: $grey-50;
+
+            &:hover {
+                background-color: $grey-200;
+            }
+        }
+
+        .e-altrow { // Sync selector
+            background-color: $grey-100;
+
+            &:hover {
+                background-color: $grey-200;
+            }
+        }
+    }
+    // Colour overrides for themed grid
+    &--themed {
+        &#{$self}--striped { // Self selector to change striping if also using the grid--themed class
+            .e-row { // Sync selector
+                background-color: var(--grid-row-background-colour);
+
+                &:hover {
+                    background-color: var(--grid-row-background-colour--hover);
+                }
+            }
+
+            .e-altrow { // Sync selector
+                background-color: var(--grid-alt-row-background-colour);
+
+                &:hover {
+                    background-color: var(--grid-row-background-colour--hover);
+                }
+            }
+        }
+
+        .e-headercell, .e-grid .e-detailheadercell { // Header cell background colour inherit from parent for theme
+            background-color: inherit;
+            border-color: #e0e0e0;
+        }
+
+        .e-gridheader .e-icons:not(.e-icon-hide):not(.e-check):not(.e-stop) {
+            color: inherit;
+        }
+
+        .e-gridheader {
+            background-color: var(--grid-header-background-colour);
+            border-bottom-color: #e0e0e0;
+            border-top-color: #e0e0e0;
+            color: var(--grid-header-font-colour);
+        }
+
+        .e-table {
+            background-color: inherit;
+        }
+
+        td.e-active {
+            background-color: var(--grid-row-background-colour-hover);
+        }
+
+        .e-content {
+            background-color: var(--app-background-color);
+        }
+
+        .e-grid.e-gridhover tr[role='row']:not(.e-editedrow) {
+            .e-rowcell {
+                color: var(--font-colour);
+            }
+
+            &:hover .e-rowcell:not(.e-cellselectionbackground):not(.e-active):not(.e-updatedtd):not(.e-indentcell) {
+                background-color: var(--grid-row-background-colour-hover);
+                color: var(--grid-row-font-colour-hover)
+            }
+        }
+    }
+}

@@ -1,0 +1,62 @@
+// Mixins take in one set of parameters and stand as a placeholder for different things
+
+// Box shadow takes in one set of box shadow parameters and provides 3 back with different browser compatabilities
+// Taken from - https://gist.github.com/garyharan/957284
+@mixin box-shadow($top, $left, $blur, $spread, $color, $inset: false) {
+  @if $inset {
+    -webkit-box-shadow: $top $left $blur $spread $color inset;
+    -moz-box-shadow: $top $left $blur $spread $color inset;
+    box-shadow: $top $left $blur $spread $color inset;
+  } @else {
+    -webkit-box-shadow: $top $left $blur $spread $color;
+    -moz-box-shadow: $top $left $blur $spread $color;
+    box-shadow: $top $left $blur $spread $color;
+  }
+}
+
+// The linear gradient takes in one set of parameters and provides 3 gradients for browser compatability
+// Using $color-stops... is a variable length parameter allows one or more colours to be passed in
+// Read more here - https://www.sitepoint.com/building-linear-gradient-mixin-sass/
+@mixin linear-gradient($direction, $color-stops...) {
+  // Call the "is-null" function in helpers/_functions.scss to see if direction parameter is null
+  @if is-null($direction) == true {
+    $color-stops: ($direction, $color-stops);
+    $direction: 180deg; //set default direction
+  }
+  background: nth(
+    nth($color-stops, 1),
+    1
+  ); //background colour as first colour passed in
+  background: -webkit-linear-gradient($direction, $color-stops);
+  background: linear-gradient($direction, $color-stops);
+}
+
+// Same as above but used default verastar colours for the gradient so only requires an optional direction
+@mixin verastar-gradient($direction) {
+  @if is-null($direction) == true {
+    $color-stops: ($direction, $color-stops);
+    $direction: 180deg;
+  }
+  background-color: $verastar--red;
+  @include linear-gradient(
+    $direction,
+    $verastar--red 0%,
+    $verastar--pink 50%,
+    $verastar--orange 100%
+  );
+}
+
+@mixin keys($animationName) {
+  @-webkit-keyframes #{$animationName} {
+    @content;
+  }
+  @-moz-keyframes #{$animationName} {
+    @content;
+  }
+  @-ms-keyframes #{$animationName} {
+    @content;
+  }
+  @keyframes #{$animationName} {
+    @content;
+  }
+}

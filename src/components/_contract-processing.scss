@@ -1,0 +1,59 @@
+.contract-processing {
+    height: 100%;
+    overflow: auto;
+
+    &__header { //Export button
+        height: 8%;
+        text-align: right;
+        padding:10px;
+    }
+
+    &__content { //Grid
+        height: 92%;
+    }
+
+    &__export-window {
+        top:5% !important;
+        z-index: 1000 !important;
+        &__body {
+            .export-fields {
+                padding-top: $padding--md;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+
+                &__container {
+                    width: 50%;
+                    max-width:300px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+
+                    &__title {
+                        font-size: 1.5rem;
+                        color: blue;
+                        text-decoration: underline;
+                    }
+
+                    &__list {
+                        .e-list-text {
+                            text-align: left;
+                        }
+                    }
+                }
+            }
+
+            .export-buttons {
+                display: flex;
+                justify-content: center; // IE Fallback
+                justify-content: space-evenly;
+            }
+        }
+    }
+
+    .checkbox__display--none {
+        .e-checkbox-wrapper {
+            display: none;
+        }
+    }
+}

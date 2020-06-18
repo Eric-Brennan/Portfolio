@@ -1,0 +1,18 @@
+.date-picker {
+    &__icon {
+        &--left {
+            .e-input-group-icon.e-date-icon.e-icons { // Sync selector
+                position: absolute;
+                left: $padding--sm;
+            }
+
+            .e-float-text.e-label-bottom { // Sync selector
+                margin-left: $margin--lg;
+            }
+
+            input.e-control.e-datepicker.e-lib { // Sync override
+                text-indent: $padding--lg;
+            }
+        }
+    }
+}
