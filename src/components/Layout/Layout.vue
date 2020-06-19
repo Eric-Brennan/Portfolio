@@ -59,7 +59,7 @@ export default class Layout extends Vue {
   /* Check data */
   selectedHeading = "";
   dataLoaded = false;
-  theme = "Light";
+  theme = "";
 
   // Hooks
   async mounted() {
@@ -144,7 +144,7 @@ export default class Layout extends Vue {
     this.$router.push({
       path: url
     });
-    this.saveURL();
+    //this.saveURL();
   }
 
   /** Called from Links nav upon clicking a link - persist links

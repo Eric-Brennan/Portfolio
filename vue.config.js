@@ -3,7 +3,7 @@
 const path = require("path");
 
 module.exports = {
-  publicPath: "",
+  
   runtimeCompiler: true,
   pluginOptions: {
     "style-resources-loader": {
@@ -11,15 +11,5 @@ module.exports = {
       patterns: [path.resolve(__dirname, "./src/style/sass/main.scss")],
     },
   },
-  configureWebpack: (config) => {
-    if (process.env.NODE_ENV === "production") {
-      output: {
-        publicPath: ""; // only for prod
-      }
-    } else {
-      // dev
-      // org, no changes
-    }
-    
-  },
+  
 };

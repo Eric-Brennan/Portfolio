@@ -9,7 +9,18 @@
     }
   }
 
-  &--themed {
-    color: var(--font-colour) !important;
+  &--themed{
+    *{
+      color: var(--font-colour) !important;
+    }
+    
+  }
+
+  &__container{
+    padding: 1rem;
+
+    &--wide{
+      width: 100%;
+    }
   }
 }

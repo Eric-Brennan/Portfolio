@@ -52086,11 +52086,6 @@ ejs-filemanager {
     right: 0;
     left: 0;
     z-index: 2; }
-  .layout__content {
-    position: absolute;
-    top: 40px;
-    bottom: 0;
-    width: 100%; }
 
 .game-board {
   height: 100%; }

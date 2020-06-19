@@ -10,5 +10,8 @@
     z-index: 2;
   }
   &__content {
+    position: relative;
+    top:$header--height;
+    bottom: 0;
   }
 }

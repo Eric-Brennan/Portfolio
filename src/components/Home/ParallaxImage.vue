@@ -37,7 +37,7 @@ export default class ParallaxImage extends Vue {
       [...document.querySelectorAll(".scrollable-background-1")].map(
         element =>
           ((element as HTMLElement).style.backgroundPosition =
-            "50% " + (y + "px"))
+            "50% " + (40 - (y/3.5) + "%"))
       );
       [...document.querySelectorAll(".scrollable-background-2")].map(
         element =>
@@ -60,9 +60,9 @@ export default class ParallaxImage extends Vue {
 .parallax-image {
   position: relative;
   background-image: url("~@/assets/Airbus.jpg");
-  height: 1000px;
+  height: 100vh;
   overflow: hidden;
-  background-position: 50% 0;
+  background-position: 50% 40%;
 
   &__underlay {
     width: 100%;

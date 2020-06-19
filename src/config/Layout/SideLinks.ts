@@ -10,10 +10,10 @@ sideLinks.push(
     icon: "",
   },
   {
-    title: "New User Request",
-    url: "/user-management/new-user",
-    headingNames: ["Staff Function", "New Employee", "Initiate"],
-    icon: "",
+    title: "Snap",
+    url: "games/snap",
+    headingNames: ["Games", "Card Games", "Snap"],
+    icon: "mdi mdi-cards",
   },
   {
     title: "Approval Worklist",
