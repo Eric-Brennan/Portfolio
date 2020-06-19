@@ -59,7 +59,7 @@ export default class ParallaxImage extends Vue {
 <style lang="scss">
 .parallax-image {
   position: relative;
-  background-image: url("~@/assets/Airbus.jpg");
+  background-image: url("~@/assets/airbus.webp");
   height: 100vh;
   overflow: hidden;
   background-position: 50% 40%;
