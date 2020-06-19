@@ -11,5 +11,17 @@ module.exports = {
       patterns: [path.resolve(__dirname, "./src/style/sass/main.scss")],
     },
   },
-  
+  chainWebpack: (config) => {
+    config
+        .plugin('html')
+        .tap(args => {
+            args[0].title = 'MyApp title';
+            args[0].viewport ='width=device-width,initial-scale=1,user-scalable=no';
+            args[0].description="A portfolio website built to showcase some of my work, built with VueJS and Typescript";
+        
+                            
+
+         return args;
+    })
+}
 };

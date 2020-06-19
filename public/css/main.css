@@ -51908,10 +51908,10 @@ ejs-filemanager {
     padding-top: 0; } }
 
 .font__oxygen {
-  font-family: "Oxygen-Regular"; }
+  font-family: "Oxygen-Regular", sans-serif; }
 
 .font__oxygen-light {
-  font-family: "Oxygen-Light"; }
+  font-family: "Oxygen-Light", sans-serif; }
 
 .font__size--lg {
   font-size: 36px; }
@@ -52087,10 +52087,9 @@ ejs-filemanager {
     left: 0;
     z-index: 2; }
   .layout__content {
-    position: absolute;
+    position: relative;
     top: 40px;
-    bottom: 0;
-    width: 100%; }
+    bottom: 0; }
 
 .game-board {
   height: 100%; }
