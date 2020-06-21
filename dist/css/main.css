@@ -51908,10 +51908,10 @@ ejs-filemanager {
     padding-top: 0; } }
 
 .font__oxygen {
-  font-family: "Oxygen-Regular"; }
+  font-family: "Oxygen-Regular","Gill Sans", sans-serif; }
 
 .font__oxygen-light {
-  font-family: "Oxygen-Light"; }
+  font-family: "Oxygen-Light", "Gill Sans", sans-serif; }
 
 .font__size--lg {
   font-size: 36px; }
@@ -51928,8 +51928,8 @@ ejs-filemanager {
 /* css-dan*/
 /* Sidebar styles */
 #dockSidebar {
-  top: 40px;
-  height: calc(100% - 40px); }
+  top: 5%;
+  height: calc(100% - 5%); }
   #dockSidebar .dock {
     height: 100%; }
     #dockSidebar .dock > div {
@@ -52080,15 +52080,31 @@ ejs-filemanager {
 .layout {
   height: 100%; }
   .layout__header {
-    height: 40px;
+    height: 5%;
     position: fixed;
     top: 0;
     right: 0;
     left: 0;
     z-index: 2; }
+  .layout__content {
+    height: 95%;
+    position: relative;
+    top: 5%; }
 
 .game-board {
-  height: 100%; }
+  height: 100%;
+  background-image: url("~@/assets/tableTop.webp");
+  padding: 5px; }
+  .game-board__border {
+    border: 5px double lightgoldenrodyellow;
+    height: 100%;
+    border-radius: 5px; }
+
+.playing-card {
+  height: 15rem;
+  width: 12rem; }
+  .playing-card__image {
+    width: 15rem; }
 
 html,
 body {
@@ -52100,7 +52116,7 @@ body {
     box-sizing: inherit; }
 
 #app {
-  height: 100%; }
+  height: 100vh; }
 
 .app-background {
   background-color: white;

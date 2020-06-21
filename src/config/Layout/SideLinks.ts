@@ -11,7 +11,7 @@ sideLinks.push(
   },
   {
     title: "Snap",
-    url: "games/snap",
+    url: "/games/snap",
     headingNames: ["Games", "Card Games", "Snap"],
     icon: "mdi mdi-cards",
   },

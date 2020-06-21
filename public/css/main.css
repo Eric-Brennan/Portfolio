@@ -51880,6 +51880,27 @@ ejs-filemanager {
   .div__container--wide {
     width: 100%; }
 
+.div__100pc {
+  width: 100%; }
+
+.div__50pc {
+  width: 50%; }
+
+.div__33pc {
+  width: 33.3%; }
+
+.div__25pc {
+  width: 25%; }
+
+.div__20pc {
+  width: 20%; }
+
+.div__16pc {
+  width: 16%; }
+
+.div__12pc {
+  width: 12%; }
+
 .animation__pulsate--slow, .animation__pulsate--slow::before {
   animation: pulse infinite 1s, grow infinite 1s; }
 
@@ -51908,10 +51929,10 @@ ejs-filemanager {
     padding-top: 0; } }
 
 .font__oxygen {
-  font-family: "Oxygen-Regular", sans-serif; }
+  font-family: "Oxygen-Regular","Gill Sans", sans-serif; }
 
 .font__oxygen-light {
-  font-family: "Oxygen-Light", sans-serif; }
+  font-family: "Oxygen-Light", "Gill Sans", sans-serif; }
 
 .font__size--lg {
   font-size: 36px; }
@@ -51928,8 +51949,8 @@ ejs-filemanager {
 /* css-dan*/
 /* Sidebar styles */
 #dockSidebar {
-  top: 40px;
-  height: calc(100% - 40px); }
+  top: 5%;
+  height: calc(100% - 5%); }
   #dockSidebar .dock {
     height: 100%; }
     #dockSidebar .dock > div {
@@ -52080,19 +52101,31 @@ ejs-filemanager {
 .layout {
   height: 100%; }
   .layout__header {
-    height: 40px;
+    height: 5%;
     position: fixed;
     top: 0;
     right: 0;
     left: 0;
     z-index: 2; }
   .layout__content {
+    height: 95%;
     position: relative;
-    top: 40px;
-    bottom: 0; }
+    top: 5%; }
 
 .game-board {
-  height: 100%; }
+  min-height: 100%;
+  height: auto;
+  background-image: url("~@/assets/tableTop.webp");
+  padding: 5px; }
+  .game-board__border {
+    border: 5px double lightgoldenrodyellow;
+    border-radius: 5px; }
+
+.playing-card {
+  height: 15rem;
+  width: 12rem; }
+  .playing-card__image {
+    width: 15rem; }
 
 html,
 body {
@@ -52104,7 +52137,7 @@ body {
     box-sizing: inherit; }
 
 #app {
-  height: 100%; }
+  height: 100vh; }
 
 .app-background {
   background-color: white;
