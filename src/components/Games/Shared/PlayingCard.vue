@@ -1,7 +1,27 @@
 <template>
-    <img v-bind:src="require(`@/assets/cards/${cardNumberName+suitName}.webp`)" 
+    <div :class="cardWidth">
+         
+    
+            <div :class="'flip-container'">
+	<div class="flipper">
+		<div class="front">
+			<img
+            v-bind:src="require(`@/assets/cards/${cardNumberName+suitName}.webp`)" 
             :alt="cardNumberName +' of ' + suitName"
-            :class="cardWidth"/>
+            :class="'playing-card__image '"
+            @click="flipCard"/>
+		</div>
+		<div class="back">
+			<img 
+            v-bind:src="require(`@/assets/cards/blue_back.webp`)" 
+            :alt="cardNumberName +' of ' + suitName"
+            :class="'playing-card__image '"
+            @click="flipCard"/>
+		</div>
+	</div>
+</div>
+    </div>
+   
 </template>
 
 <script lang="ts">
@@ -14,6 +34,16 @@
         @Prop() cardNumber!: number;
         @Prop() suit!: number;
         @Prop() columns!: number;
+
+        front = false;
+
+        flipAnimation = "";
+
+        flipCard(){
+            
+           
+           
+        }
 
         get cardWidth(){
             switch (this.columns){
@@ -106,5 +136,45 @@
 </script>
 
 <style lang="scss" scoped>
+.flip-container {
+	perspective: 1000px;
+}
+	/* flip the pane when hovered */
+	.flip-container:hover .flipper, .flip-container.hover .flipper {
+		transform: rotateY(180deg);
+	}
 
+.flip-container, .front, .back {
+	width: 100%;
+	height: 15rem;
+}
+
+/* flip speed goes here */
+.flipper {
+	transition: 0.6s;
+	transform-style: preserve-3d;
+
+	position: relative;
+}
+
+/* hide back of pane during swap */
+.front, .back {
+	backface-visibility: hidden;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+/* front pane, placed above back */
+.front {
+	z-index: 2;
+	/* for firefox 31 */
+	transform: rotateY(180deg);
+}
+
+/* back, initially hidden pane */
+.back {
+	transform: rotateY(0deg);
+}
 </style>
