@@ -52140,10 +52140,11 @@ ejs-filemanager {
   min-height: 100%;
   height: auto;
   background-image: url("~@/assets/tableTop.webp");
-  padding: 5px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center; }
+  padding: 5px; }
+  .game-board--flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; }
   .game-board__border {
     border: 5px double lightgoldenrodyellow;
     border-radius: 5px; }

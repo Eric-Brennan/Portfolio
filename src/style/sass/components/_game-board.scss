@@ -3,9 +3,12 @@
     height: auto;
     background-image:  url("~@/assets/tableTop.webp");
     padding: 5px;
-    display: flex;
+    
+    &--flex{
+        display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    }
     
     &__snap{
         

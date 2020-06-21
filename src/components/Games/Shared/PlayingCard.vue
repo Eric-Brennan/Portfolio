@@ -2,7 +2,7 @@
     <div :class="cardWidth">
          
     
-            <div :class="'flip-container'">
+            <div :class="'flip-container '+ isFlipped">
 	<div class="flipper">
 		<div class="front">
 			<img
@@ -40,11 +40,14 @@
         flipAnimation = "";
 
         flipCard(){
-            
+                this.front =!this.front;
            
            
         }
 
+        get isFlipped(){
+            return this.front ? "flipped" : "";
+        }
         get cardWidth(){
             switch (this.columns){
                 case 1:{
@@ -140,7 +143,7 @@
 	perspective: 1000px;
 }
 	/* flip the pane when hovered */
-	.flip-container:hover .flipper, .flip-container.hover .flipper {
+	.flip-container.flipped .flipper, .flip-container.hover .flipper {
 		transform: rotateY(180deg);
 	}
 

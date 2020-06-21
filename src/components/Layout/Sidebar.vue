@@ -78,10 +78,7 @@ export default class Sidebar extends Vue {
 
   // Hooks
   mounted() {
-    // Set saved links as current links if any saved
-    //if (this.savedLinks.length > 0) {
-    //  this.currentLinks = this.savedLinks;
-    //}
+    this.toggleSidebar(false);
   }
 
   // Methods

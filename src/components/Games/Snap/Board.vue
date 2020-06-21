@@ -1,6 +1,6 @@
 <template>
   <div class="game-board">
-    <div class="game-board game-board__border">
+    <div class="game-board game-board--flex game-board__border">
       <PlayingCard
           v-for="card in deck"
           :key="card.cardNumber.toString()+card.suit.toString()"
