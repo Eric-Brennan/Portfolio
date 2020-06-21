@@ -2,14 +2,15 @@
   <div class="game-board">
     <div class="game-board game-board--flex game-board__border">
       <PlayingCard
-          v-for="(card, index) in playDeck"
-          :key="card.cardNumber.toString()+' of '+card.suit.toString()+index"
-          :cardNumber="card.cardNumber"
-          :suit="card.suit"
-          :front="card.front"
-          :columns="5"
-          @cardFlipped="cardFlipped"
-        />
+        v-if="showCards"
+        v-for="(card, index) in playDeck"
+        :key="card.cardNumber.toString()+' of '+card.suit.toString()+index"
+        :cardNumber="card.cardNumber"
+        :suit="card.suit"
+        :front="card.front"
+        :columns="5"
+        @cardFlipped="cardFlipped"
+      />
     </div>
   </div>
 </template>
@@ -25,20 +26,29 @@ import PlayingCard from "@/components/Games/Shared/PlayingCard.vue";
 })
 export default class SnapBoard extends Vue {
   // Data
-  deck: { cardNumber: number; suit: number, front: boolean, picked: boolean }[] = [];
+  deck: {
+    cardNumber: number;
+    suit: number;
+    front: boolean;
+    picked: boolean;
+  }[] = [];
 
-  playDeck: { cardNumber: number; suit: number, front: boolean }[] = [];
+  playDeck: { cardNumber: number; suit: number; front: boolean }[] = [];
 
   numberOfPairs = 5;
 
-    deckBuilt = false;
+  deckBuilt = false;
 
-    cardHistory: { cardNumber: number; suit: number, front: boolean }[] = []; 
+  cardHistory: { cardNumber: number; suit: number; front: boolean }[] = [];
 
-    cardMatch = false;
+  cardMatch = false;
+
+  showCards = false;
+
   async mounted() {
     await this.buildDeck();
     await this.buildPlayDeck();
+    this.showCards = true;
   }
 
   buildDeck() {
@@ -55,34 +65,96 @@ export default class SnapBoard extends Vue {
     this.deckBuilt = true;
   }
 
-  buildPlayDeck(){
-      for(let i = 0 ; i < this.numberOfPairs ; i++){
-          this.playDeck = this.playDeck.concat(this.pair())
-      }
+  buildPlayDeck() {
+    for (let i = 0; i < this.numberOfPairs; i++) {
+      this.playDeck = this.playDeck.concat(this.pair());
+    }
+    this.playDeck = this.shuffle(this.playDeck)
   }
 
-    pair(){
-        let cardPair: { cardNumber: number; suit: number, front: boolean }[] = [];
-        let cNumber = Math.floor(Math.random() * Math.floor(13));
-        let csuit = Math.floor(Math.random() * Math.floor(4));
+    shuffle(array:{ cardNumber: number; suit: number; front: boolean }[]) {
+    let counter = array.length;
 
-        cardPair.push({cardNumber: cNumber, suit: csuit, front: false})
-        this.deck[this.deck.findIndex(c => c.suit === csuit && c.cardNumber === cNumber)].picked = true;
-        let secondGot = false;
-        let csuitNew = -1;
-       // while(!secondGot){
-            csuitNew = Math.floor(Math.random() * Math.floor(4));
-          //  csuit !== csuitNew ? secondGot = true : secondGot = false;
-       // }
-        cardPair.push({cardNumber: cNumber, suit: csuitNew, front: false})
-        this.deck[this.deck.findIndex(c => c.suit === csuit && c.cardNumber === cNumber)].picked = true;
+    // While there are elements in the array
+    while (counter > 0) {
+        // Pick a random index
+        let index = Math.floor(Math.random() * counter);
 
-        return cardPair;
+        // Decrease counter by 1
+        counter--;
+
+        // And swap the last element with it
+        let temp = array[counter];
+        array[counter] = array[index];
+        array[index] = temp;
     }
 
-    cardFlipped(cardNumber: number, suit: number){
-        this.playDeck[this.playDeck.findIndex(c => c.suit === suit && c.cardNumber === cardNumber)].front = true;
+    return array;
+}
+  pair() {
+    let cardPair: { cardNumber: number; suit: number; front: boolean }[] = [];
+    let cNumber = Math.floor(Math.random() * Math.floor(13));
+    let csuit = Math.floor(Math.random() * Math.floor(4));
+
+    cardPair.push({ cardNumber: cNumber, suit: csuit, front: false });
+    this.deck[
+      this.deck.findIndex(c => c.suit === csuit && c.cardNumber === cNumber)
+    ].picked = true;
+    let secondGot = false;
+    let csuitNew = -1;
+    while (!secondGot) {
+      csuitNew = Math.floor(Math.random() * Math.floor(4));
+      csuit !== csuitNew ? (secondGot = true) : (secondGot = false);
     }
+    cardPair.push({ cardNumber: cNumber, suit: csuitNew, front: false });
+    this.deck[
+      this.deck.findIndex(c => c.suit === csuit && c.cardNumber === cNumber)
+    ].picked = true;
+
+    return cardPair;
+  }
+
+  cardFlipped(cardNumber: number, suit: number) {
+    this.playDeck[
+      this.playDeck.findIndex(
+        c => c.suit === suit && c.cardNumber === cardNumber
+      )
+    ].front = true;
+    this.cardHistory.push(
+      this.playDeck[
+        this.playDeck.findIndex(
+          c => c.suit === suit && c.cardNumber === cardNumber
+        )
+      ]
+    );
+    if (this.cardHistory.length % 2 === 0) {
+      if (
+        this.cardHistory[this.cardHistory.length - 1].cardNumber ===
+        this.cardHistory[this.cardHistory.length - 2].cardNumber
+      ) {
+      } else {
+          setTimeout(() => {
+this.playDeck[
+          this.playDeck.findIndex(
+            c =>
+              this.cardHistory[this.cardHistory.length - 1].suit === c.suit &&
+              this.cardHistory[this.cardHistory.length - 1].cardNumber ===
+                c.cardNumber
+          )
+        ].front = false;
+        this.playDeck[
+          this.playDeck.findIndex(
+            c =>
+              this.cardHistory[this.cardHistory.length - 2].suit === c.suit &&
+              this.cardHistory[this.cardHistory.length - 2].cardNumber ===
+                c.cardNumber
+          )
+        ].front = false;
+          }, 1000)
+        
+      }
+    }
+  }
 
   randomCard() {
     let cNumber = Math.floor(Math.random() * Math.floor(13));
