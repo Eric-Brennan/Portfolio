@@ -34,15 +34,13 @@
         @Prop() cardNumber!: number;
         @Prop() suit!: number;
         @Prop() columns!: number;
+        @Prop() front!: boolean;
 
-        front = false;
 
         flipAnimation = "";
 
         flipCard(){
-                this.front =!this.front;
-           
-           
+            this.$emit("cardFlipped", this.cardNumber, this.suit);
         }
 
         get isFlipped(){
